@@ -10,6 +10,8 @@
 
 **Dashboard para GitHub Pages:** https://edwiny23.github.io/Taller3-Jairo_Serrano_Edwin_Yunis/
 
+**Libro académico navegable:** https://edwiny23.github.io/Taller3-Jairo_Serrano_Edwin_Yunis/book/
+
 > La dirección funciona una vez que se habilita GitHub Pages. La conexión de ChatGPT puede escribir en el repositorio, pero no administrar la configuración de GitHub Pages.
 
 ## Resultados
