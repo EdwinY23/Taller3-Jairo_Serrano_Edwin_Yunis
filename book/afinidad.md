@@ -99,8 +99,8 @@ $$
 | Agenda | Asistencias perdidas | P | Interés ponderado atendido |
 |---|---:|---:|---:|
 | ROC agrupado consecutivamente | 18 | 12,30 | 62,02 % |
-| Solver original de Edwin | 7 | **3,80** | 88,26 % |
-| ROC + heurística de afinidad de Jairo | 7 | **3,62** | **88,83 %** |
+| Optimización con Solver | 7 | **3,80** | 88,26 % |
+| ROC + heurística de afinidad | 7 | **3,62** | **88,83 %** |
 | Cota inferior | 7 | 3,62 | — |
 
 El valor exacto para Solver es 3,8032088383, en lugar de los 4,00 que aparecen en la propuesta inicial. Se utiliza el cálculo sin redondeo para permitir una comparación rigurosa.
