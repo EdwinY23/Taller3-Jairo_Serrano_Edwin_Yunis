@@ -5,4 +5,5 @@ chapters:
   - file: ordenamiento
   - file: optimizacion
   - file: resultados
+  - file: afinidad
   - file: verificacion
