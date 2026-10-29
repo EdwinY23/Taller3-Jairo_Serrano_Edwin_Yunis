@@ -1,0 +1,13 @@
+Sector,Machine learning,Tratamiento de aguas,Transformación digital,Big Data,Realidad virtual y aumentada,Gestión de Proyectos de Innovación,Pricing,Simulación,Diseño de Marketplaces,Green Supply Chains,Sostenibilidad,Planeación portuaria
+Agroindustria,1,1,0,1,0,0,1,0,0,1,0,1
+Producción Textil,1,0,0,1,1,0,0,1,1,1,0,0
+Transporte,1,0,0,1,1,0,0,0,0,1,0,1
+Energía,1,0,0,0,0,0,1,0,0,1,0,0
+Minería,0,1,0,0,0,1,0,1,0,0,1,0
+Recursos forestales,0,1,0,0,0,1,0,0,0,0,1,0
+Turismo,0,0,1,0,1,0,0,1,1,0,1,0
+Educación,0,0,1,0,1,0,0,0,0,0,0,0
+Sector Financiero,0,0,1,0,0,0,0,1,0,0,0,0
+Adm. Pública,0,0,1,0,0,0,0,0,0,0,0,0
+Manufactura,0,0,0,0,1,1,0,1,1,1,0,0
+Industria Química,0,0,0,0,0,0,0,0,0,1,0,0
