@@ -76,8 +76,8 @@ function affBuildSteps(){
 }
 function affBuildComparison(){
  const rows=[{name:'ROC consecutivo',key:'roc',desc:'Agrupación tras ordenamiento binario'},
- {name:'Solver de Edwin',key:'optimal',desc:'Optimización de asistencias perdidas'},
- {name:'ROC + heurística U (Jairo)',key:'heuristic',desc:'Afinidad entre sectores y conservación de interés'}];
+ {name:'Optimización con Solver',key:'optimal',desc:'Optimización de asistencias perdidas'},
+ {name:'ROC + heurística U',key:'heuristic',desc:'Afinidad entre sectores y conservación de interés'}];
  document.getElementById('aff-comparison').innerHTML=rows.map(item=>{
   const s=SCHEDULES[item.key],lost=sumLoss(s),p=affLoss(s),coverage=(1-p/AFF_TOTAL)*100;
   return '<tr><td><strong>'+item.name+'</strong><div class="note">'+item.desc+'</div></td><td class="num">'+lost+'</td><td class="num">'+affFormat(p)+'</td><td class="num">'+affFormat(coverage)+' %</td></tr>';
