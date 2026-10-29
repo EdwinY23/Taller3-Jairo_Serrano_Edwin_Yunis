@@ -11,16 +11,23 @@
 
 **18 asistencias perdidas; 25 oportunidades aprovechables de 43.**
 
-## Programa óptimo
+## Programa óptimo encontrado por Solver en el Excel final de los autores
 
-| Horario | Auditorio 1 | Auditorio 2 | Auditorio 3 |
-|---|---|---|---|
-| 08:00–09:45 | Machine learning | Tratamiento de aguas | Realidad virtual y aumentada |
-| 10:00–11:45 | Transformación digital | Big Data | Gestión de Proyectos de Innovación |
-| 14:00–15:45 | Pricing | Simulación | Planeación portuaria |
-| 16:00–17:45 | Diseño de Marketplaces | Green Supply Chains | Sostenibilidad |
+La programación que se presenta aquí corresponde **literalmente** a la asignación de variables binarias de la hoja `Optimizacion` del archivo `Taller 3 - Jairo Serrano - Edwin Yunis(1).xlsx`. No se sustituye por otra solución equivalente.
 
-**7 asistencias perdidas; 36 oportunidades aprovechables de 43.**
+| Horario | Auditorio 1 | Auditorio 2 | Auditorio 3 | Oportunidades perdidas |
+|---|---|---|---|---:|
+| 08:00–09:45 | Transformación digital | Green Supply Chains | Sostenibilidad | 1 |
+| 10:00–11:45 | Machine learning | Big Data | Simulación | 4 |
+| 14:00–15:45 | Gestión de Proyectos de Innovación | Diseño de Marketplaces | Planeación portuaria | 1 |
+| 16:00–17:45 | Tratamiento de aguas | Realidad virtual y aumentada | Pricing | 1 |
+| **Total** | | | | **7** |
+
+**7 oportunidades de asistencia perdidas; 36 aprovechables de 43.**
+
+La misma solución aparece en las celdas `C4:N7` de `Optimizacion` y en el resumen final `H24=36` y `M24=7`. La reducción frente al ordenamiento binario figura en `H27=61,11 %`.
+
+> Nota de comprobación: en la hoja `Optimizacion`, los rótulos de los sectores de `B12:B23` no coinciden fila por fila con las referencias de `SUMPRODUCT` dirigidas a `Hoja1!C4:N15`. El **total agregado** de 36 y 7 sí es correcto porque se utilizan todas las filas de la matriz original; sin embargo, los valores **por sector** deben atribuirse según `Hoja1!B4:B15` y no según los rótulos desfasados de aquella tabla. El dashboard calcula esos detalles directamente desde los sectores correctos de la matriz inicial.
 
 ## Comparación
 
