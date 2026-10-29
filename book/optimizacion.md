@@ -78,6 +78,6 @@ Los sectores que superan los cuatro intereses son:
 | Turismo | 5 | 1 |
 | Manufactura | 5 | 1 |
 
-Por lo tanto, `L ≥ 7`. La programación propuesta logra **L = 7**, por lo que es globalmente óptima bajo el objetivo establecido.
+Por lo tanto, `L ≥ 7`. La programación encontrada por Solver en el Excel final de los autores (hoja `Optimizacion`, rango `C4:N7`) logra **L = 7**: [descargar Excel](../data/Taller_3_Jairo_Serrano_Edwin_Yunis.xlsx). Por lo tanto alcanza la cota inferior y es globalmente óptima bajo el objetivo establecido.
 
 La enumeración exhaustiva independiente de las 15.400 particiones no etiquetadas en cuatro grupos de tres produjo un mínimo de 7 y 72 agrupaciones óptimas.
