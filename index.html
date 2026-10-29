@@ -8,7 +8,7 @@
  <link rel="stylesheet" href="assets/style.css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:true},{left:'\(',right:'\)',display:false}],throwOnError:false})"></script>
+ <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
  <script src="assets/app.js" defer></script>
  <script src="assets/afinidad.js" defer></script>
 </head>
@@ -89,7 +89,7 @@
  <div class="section-header"><div><h2>Participación por sector</h2><p>Intereses originales, oportunidades cubiertas y asistencias perdidas según el horario seleccionado.</p></div></div>
  <div class="panel-grid">
   <div class="panel"><h3>Cobertura del filtro seleccionado</h3><div class="metric-inline"><strong id="covered-value">36</strong><span id="coverage-value">83,7%</span></div><div class="meter"><div id="coverage-fill" class="fill" style="width:83.72%"></div></div><p class="footnote" id="sector-detail">43 intereses sector–temática · 12 sectores</p></div>
-  <div class="panel"><h3>Definición del indicador</h3><div class="formula-title">Pérdidas por sector y franja</div><div class="formula">$\operatorname{Pérdidas}_{ih}=\max\left(0,\sum_j a_{ij}\,x_{jh}-1\right)$</div><p class="footnote">Cada sector puede aprovechar como máximo una conferencia por franja horaria.</p><p class="subtle" style="font-size:12px">Se contabiliza como aprovechable una temática de interés por sector y por franja, porque las conferencias en los tres auditorios ocurren al mismo tiempo.</p></div>
+  <div class="panel"><h3>Definición del indicador</h3><div class="formula-title">Pérdidas por sector y franja</div><div class="formula">$$\operatorname{Pérdidas}_{ih}=\max\left(0,\sum_j a_{ij}\,x_{jh}-1\right)$$</div><p class="footnote">Cada sector puede aprovechar como máximo una conferencia por franja horaria.</p><p class="subtle" style="font-size:12px">Se contabiliza como aprovechable una temática de interés por sector y por franja, porque las conferencias en los tres auditorios ocurren al mismo tiempo.</p></div>
  </div>
  <div class="panel" style="margin-top:16px;padding:0;overflow:hidden"><div class="table-wrap"><table class="data-table"><thead><tr><th>Sector económico</th><th class="num">Intereses</th><th class="num">Aprovechables</th><th class="num">Perdidas</th><th>Oportunidades cubiertas</th></tr></thead><tbody id="sectors-body"></tbody></table></div></div>
 </section>
@@ -102,9 +102,9 @@
 <section class="section" id="metodo">
  <div class="section-header"><div><h2>Metodología · Ordenamiento binario</h2><p>Tratamiento de datos explicado en las diapositivas 12–15 del profesor Alcides R. Santander.</p></div></div>
  <div class="method-grid">
-  <div class="method-card"><div class="step">01</div><h3>Matriz de incidencia</h3><p>Filas = sectores; columnas = temáticas. Se marca 1 para una temática de interés y 0 en caso contrario.</p><div class="formula">$a_{ij}\in\{0,1\}$</div><p class="footnote">La matriz original identifica presencia o ausencia de interés sector–temática.</p></div>
-  <div class="method-card"><div class="step">02</div><h3>Pesos y ordenamiento</h3><p>Asignar pesos de potencias de dos a las posiciones y ordenar filas por puntuación descendente; repetir sobre columnas.</p><div class="formula">$p_i=\sum_{j=1}^{12}a_{ij}\,2^{\,12-j}$</div><p class="footnote">Los pesos ROC permiten ordenar sectores y temáticas por incidencia binaria.</p></div>
-  <div class="method-card"><div class="step">03</div><h3>Estabilidad y agenda</h3><p>Alternar el ordenamiento de filas y columnas hasta que no cambie. Para la agenda ROC se agrupan columnas consecutivas de tres en tres.</p><div class="formula">$4\;\text{franjas}\times3\;\text{auditorios}=12\;\text{temáticas}$</div><p class="footnote">Agrupar columnas consecutivas es una regla posterior al ordenamiento, no una solución óptima garantizada.</p></div>
+  <div class="method-card"><div class="step">01</div><h3>Matriz de incidencia</h3><p>Filas = sectores; columnas = temáticas. Se marca 1 para una temática de interés y 0 en caso contrario.</p><div class="formula">$$a_{ij}\in\{0,1\}$$</div><p class="footnote">La matriz original identifica presencia o ausencia de interés sector–temática.</p></div>
+  <div class="method-card"><div class="step">02</div><h3>Pesos y ordenamiento</h3><p>Asignar pesos de potencias de dos a las posiciones y ordenar filas por puntuación descendente; repetir sobre columnas.</p><div class="formula">$$p_i=\sum_{j=1}^{12}a_{ij}\,2^{\,12-j}$$</div><p class="footnote">Los pesos ROC permiten ordenar sectores y temáticas por incidencia binaria.</p></div>
+  <div class="method-card"><div class="step">03</div><h3>Estabilidad y agenda</h3><p>Alternar el ordenamiento de filas y columnas hasta que no cambie. Para la agenda ROC se agrupan columnas consecutivas de tres en tres.</p><div class="formula">$$4\;\text{franjas}\times3\;\text{auditorios}=12\;\text{temáticas}$$</div><p class="footnote">Agrupar columnas consecutivas es una regla posterior al ordenamiento, no una solución óptima garantizada.</p></div>
  </div>
  <div class="warning" style="margin-top:16px"><strong>Importante:</strong> dividir las columnas ordenadas en cuatro grupos consecutivos de tres es una regla de programación aplicada después del ROC, no una propiedad de optimalidad del algoritmo de ordenamiento binario.</div>
 </section>
@@ -116,25 +116,25 @@
    <h3>Variables y objetivo</h3>
    <p><strong>x<sub>jh</sub></strong> = 1 si la temática j se asigna al horario h; 0 en caso contrario.</p>
    <p><strong>y<sub>ih</sub></strong> = 1 si el sector i tiene al menos una conferencia de interés disponible en h.</p>
-   <div class="formula-title">Objetivo: maximizar asistencia aprovechable</div><div class="formula">$\max\; Z=\sum_i\sum_h y_{ih}\qquad L=43-Z$</div><p class="footnote">Las 43 relaciones de interés se dividen en asistencias aprovechables y oportunidades perdidas.</p>
+   <div class="formula-title">Objetivo: maximizar asistencia aprovechable</div><div class="formula">$$\max\; Z=\sum_i\sum_h y_{ih}\qquad L=43-Z$$</div><p class="footnote">Las 43 relaciones de interés se dividen en asistencias aprovechables y oportunidades perdidas.</p>
    <p class="subtle" style="font-size:12px">Se minimizan las oportunidades de asistencia perdidas, equivalentes a maximizar oportunidades aprovechables.</p>
   </div>
   <div class="panel">
    <h3>Restricciones del modelo</h3>
    <div class="formula-title">Asignación única, capacidad y factibilidad</div>
-   <div class="formula">$\begin{aligned}
+   <div class="formula">$$\begin{aligned}
    \sum_h x_{jh}&=1 &&\forall j\\
    \sum_j x_{jh}&=3 &&\forall h\\
    y_{ih}&\le\sum_j a_{ij}\,x_{jh} &&\forall i,h\\
    x_{jh},y_{ih}&\in\{0,1\}
-   \end{aligned}$</div><p class="footnote">Cada temática ocurre una vez; cada horario admite tres conferencias; las variables son binarias.</p>
+   \end{aligned}$$</div><p class="footnote">Cada temática ocurre una vez; cada horario admite tres conferencias; las variables son binarias.</p>
    <p class="subtle" style="font-size:12px">La maximización obliga a yᵢₕ a tomar 1 siempre que exista un interés programado en esa franja.</p>
   </div>
  </div>
  <div class="panel" style="margin-top:16px">
  <div class="panel-title"><h3>Certificado de optimalidad</h3><span class="tag-inline">Óptimo probado</span></div>
  <p>La cota inferior se calcula sin Solver: si un sector tiene <em>dᵢ</em> temáticas de interés pero únicamente cuatro horarios, perderá como mínimo <em>max(0, dᵢ − 4)</em> oportunidades.</p>
- <div class="formula-title">Cota inferior de oportunidades perdidas</div><div class="formula">$L^*\ge\sum_i\max(0,d_i-4)=2+2+1+1+1=7$</div><p class="footnote">Los sectores que necesitan más de cuatro sesiones necesariamente pierden al menos una parte de sus intereses.</p>
+ <div class="formula-title">Cota inferior de oportunidades perdidas</div><div class="formula">$$L^*\ge\sum_i\max(0,d_i-4)=2+2+1+1+1=7$$</div><p class="footnote">Los sectores que necesitan más de cuatro sesiones necesariamente pierden al menos una parte de sus intereses.</p>
  <p>La agenda optimizada alcanza exactamente <strong>7</strong> asistencias perdidas. Por lo tanto alcanza la cota inferior y es globalmente óptima bajo el criterio definido.</p>
  <p class="footnote">Comprobación adicional: el conjunto de 12 temáticas admite <strong id="solutions-count">15.400</strong> particiones no etiquetadas en cuatro grupos de tres. Su enumeración exhaustiva produjo un mínimo de 7, alcanzado por 72 particiones. Auditorios y orden de franjas son simétricos.</p>
  </div>
@@ -154,12 +154,12 @@
   <div class="panel">
    <h3>Cómo se calcula Spearman con variables binarias</h3>
    <div class="formula-title">Rangos medios ante empates</div>
-   <div class="formula">$R_{ji}=\#\{x<a_{ji}\}+\frac{\#\{x=a_{ji}\}+1}{2}$</div>
+   <div class="formula">$$R_{ji}=\#\{x&lt;a_{ji}\}+\frac{\#\{x=a_{ji}\}+1}{2}$$</div>
    <p class="footnote">Se asigna a cada respuesta 0 o 1 el rango promedio dentro del vector del sector.</p>
    <div class="formula-title">Correlación de los rangos</div>
-   <div class="formula">$\rho_{jk}=\frac{\sum_i(R_{ji}-\bar R_j)(R_{ki}-\bar R_k)}{\sqrt{\sum_i(R_{ji}-\bar R_j)^2\sum_i(R_{ki}-\bar R_k)^2}}$</div>
+   <div class="formula">$$\rho_{jk}=\frac{\sum_i(R_{ji}-\bar R_j)(R_{ki}-\bar R_k)}{\sqrt{\sum_i(R_{ji}-\bar R_j)^2\sum_i(R_{ki}-\bar R_k)^2}}$$</div>
    <div class="formula-title">Equivalencia con phi para variables binarias</div>
-   <div class="formula">$\rho_{jk}=\frac{n_{11}n_{00}-n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet1}n_{\bullet0}}}$</div>
+   <div class="formula">$$\rho_{jk}=\frac{n_{11}n_{00}-n_{10}n_{01}}{\sqrt{n_{1\bullet}n_{0\bullet}n_{\bullet1}n_{\bullet0}}}$$</div>
    <p class="footnote">Con respuestas 0–1, Spearman con empates coincide con Pearson y el coeficiente phi. La fórmula simplificada \(1-6\sum d^2/[n(n^2-1)]\) <strong>no es aplicable</strong> sin corregir empates.</p>
   </div>
   <div class="panel">
@@ -171,9 +171,9 @@
  <div class="panel" style="margin-top:16px">
   <h3>Ejemplo: Agroindustria y Energía</h3>
   <div class="formula-title">Coincidencias de interés</div>
-  <div class="formula">$n_{11}=3,\quad n_{10}=3,\quad n_{01}=0,\quad n_{00}=6$</div>
+  <div class="formula">$$n_{11}=3,\quad n_{10}=3,\quad n_{01}=0,\quad n_{00}=6$$</div>
   <div class="formula-title">Cálculo del coeficiente</div>
-  <div class="formula">$\rho_{\text{Agro,Energía}}=\frac{3(6)-3(0)}{\sqrt{(6)(6)(3)(9)}}=\frac{18}{\sqrt{972}}\approx0{,}58$</div>
+  <div class="formula">$$\rho_{\text{Agro,Energía}}=\frac{3(6)-3(0)}{\sqrt{(6)(6)(3)(9)}}=\frac{18}{\sqrt{972}}\approx0{,}58$$</div>
   <p class="footnote">Comparten intereses en Machine learning, Pricing y Green Supply Chains. El coeficiente es positivo, por lo que el encuentro entre estos sectores resulta especialmente pertinente.</p>
  </div>
 </section>
@@ -184,15 +184,15 @@
  <div class="panel-grid">
   <div class="panel">
     <h3>Construcción de los pesos positivos</h3>
-    <div class="formula">$\rho^+_{jk}=\max(0,\rho_{jk}),\qquad \rho^+_{jj}=1$</div>
+    <div class="formula">$$\rho^+_{jk}=\max(0,\rho_{jk}),\qquad \rho^+_{jj}=1$$</div>
     <p class="footnote">Se conservan únicamente afinidades no negativas; cada sector participa en su propia ponderación.</p>
     <h3 style="margin-top:23px">Utilización por sector y temática</h3>
-    <div class="formula">$U_{ji}=a_{ji}\frac{\sum_k\rho^+_{jk}\,a_{ki}}{\sum_k\rho^+_{jk}}$</div>
+    <div class="formula">$$U_{ji}=a_{ji}\frac{\sum_k\rho^+_{jk}\,a_{ki}}{\sum_k\rho^+_{jk}}$$</div>
     <p class="footnote">Mide qué proporción de la afinidad positiva del sector j comparte su interés por la temática i. No corresponde a utilización física de máquinas.</p>
   </div>
   <div class="panel">
    <h3>Ejemplo · Agroindustria</h3>
-   <div class="formula">$\sum_k\rho^+_{\text{Agro},k}=1+0{,}58+0{,}51+0{,}30\approx2{,}39$</div>
+   <div class="formula">$$\sum_k\rho^+_{\text{Agro},k}=1+0{,}58+0{,}51+0{,}30\approx2{,}39$$</div>
    <p>De esta ponderación se obtienen, aproximadamente: <strong>Green Supply Chains = 1,00</strong>, <strong>Machine learning = 0,87</strong> y <strong>Tratamiento de aguas = 0,42</strong>.</p>
    <div class="metric-inline"><strong>32,40</strong><span>Utilización ponderada total de los 43 intereses</span></div>
    <p class="footnote">Suma calculada sin redondeos: 32,3966204153. Las cifras de la matriz se presentan con dos decimales para facilitar la lectura.</p>
@@ -208,7 +208,7 @@
   <h3>Regla de asignación: menor solapamiento de utilización</h3>
   <p>Se recorren las columnas en el orden final del ROC. Para cada temática se calcula el costo de ubicarla en cada franja con menos de tres conferencias; se selecciona el costo mínimo y, en caso de empate, la primera franja.</p>
   <div class="formula-title">Costo marginal de una temática en una franja</div>
-  <div class="formula">$c_{is}=\sum_j\min\left(U_{ji},\max_{k\in s}U_{jk}\right)$</div>
+  <div class="formula">$$c_{is}=\sum_j\min\left(U_{ji},\max_{k\in s}U_{jk}\right)$$</div>
   <p class="footnote">La franja vacía tiene costo cero. Se penaliza que un sector deje de aprovechar interés ponderado ya cubierto por otra temática simultánea.</p>
   <div class="table-wrap" style="margin-top:17px"><table class="data-table">
    <thead><tr><th>Iteración</th><th>Temática ROC</th><th>Asignación</th><th class="num">Costo marginal</th><th class="num">Acumulado</th></tr></thead>
@@ -225,12 +225,12 @@
   <div class="panel">
    <h3>Medir interés ponderado perdido</h3>
    <div class="formula-title">Función de pérdida ponderada por afinidad</div>
-   <div class="formula">$P=\sum_j\sum_s\left[\sum_iU_{ji}\,z_{is}-\max_i\big(U_{ji}\,z_{is}\big)\right]$</div>
+   <div class="formula">$$P=\sum_j\sum_s\left[\sum_iU_{ji}\,z_{is}-\max_i\big(U_{ji}\,z_{is}\big)\right]$$</div>
    <p class="footnote">Se cuenta por franja la utilización total de las temáticas asignadas menos la mayor utilización que puede aprovechar cada sector.</p>
    <div class="formula-title">Porcentaje de interés ponderado atendido</div>
-   <div class="formula">$\%\operatorname{atendido}=100\left(1-\frac{P}{\sum_{j,i}U_{ji}}\right)$</div>
+   <div class="formula">$$\%\operatorname{atendido}=100\left(1-\frac{P}{\sum_{j,i}U_{ji}}\right)$$</div>
    <div class="formula-title">Cota inferior ponderada</div>
-   <div class="formula">$P^*\ge\sum_j\operatorname{sumaMenores}_{d_j-4}(U_{j,\cdot})\approx3{,}62$</div>
+   <div class="formula">$$P^*\ge\sum_j\operatorname{sumaMenores}_{d_j-4}(U_{j,\cdot})\approx3{,}62$$</div>
    <p class="footnote">Cuando un sector tiene más de cuatro intereses, debe perder al menos los \(d_j-4\) de menor valor U. La tercera agenda alcanza simultáneamente las cotas de pérdidas y de interés ponderado.</p>
   </div>
   <div class="panel">
