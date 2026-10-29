@@ -70,7 +70,6 @@ function init(){
  $('method-opt').addEventListener('click',()=>setMethod('optimal'));
  $('sector-select').innerHTML='<option value="-1">Todos los sectores</option>'+SECTORS.map((s,i)=>'<option value="'+i+'">'+escapeHTML(s)+'</option>').join('');
  $('sector-select').addEventListener('change',e=>{focus=Number(e.target.value);render()});
- $('export-data').addEventListener('click',csvDownload);
  $('nav-mobile').addEventListener('change',e=>{if(e.target.value)document.querySelector(e.target.value)?.scrollIntoView({behavior:'smooth'});});
  const links=Array.from(document.querySelectorAll('.nav a'));
  links.forEach(a=>a.addEventListener('click',()=>{links.forEach(x=>x.classList.remove('active'));a.classList.add('active')}));
