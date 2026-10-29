@@ -34,7 +34,7 @@ async function openPage(file){
  const md=await res.text();
  if(window.marked&&window.marked.parse){panel.innerHTML=window.marked.parse(md);panel.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')?.startsWith('../data'))a.setAttribute('download','')})}
  else{panel.textContent=md;panel.style.whiteSpace='pre-wrap'}
- if(typeof window.renderMathInElement==='function')window.renderMathInElement(panel,{delimiters:[{left:'$',right:'$',display:true},{left:'\(',right:'\)',display:false},{left:'\[',right:'\]',display:true}],throwOnError:false});
+ if(typeof window.renderMathInElement==='function')window.renderMathInElement(panel,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});
  window.scrollTo({top:0,behavior:'instant'});
  }catch(e){panel.innerHTML='<h2>Capítulo no disponible</h2><p>No se pudo cargar este capítulo desde la web.</p><p><a href="https://github.com/EdwinY23/Taller3-Jairo_Serrano_Edwin_Yunis/tree/main/book" target="_blank" rel="noopener">Leer documentos en GitHub</a></p>'}
 }
