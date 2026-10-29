@@ -30,7 +30,7 @@ $$
 \rho_{\mathrm{Agro,Energía}}=\frac{18}{\sqrt{972}}\approx0{,}5774
 $$
 
-Los principales pares son: Minería–Recursos forestales (0,82), Financiero–Adm. Pública (0,67), Adm. Pública–Educación (0,67), Agro–Energía (0,58), Turismo–Educación (0,53), Turismo–Financiero (0,53), Energía–Industria Química (0,52), Agro–Transporte (0,51), Manufactura–Textil (0,51) y Textil–Transporte (0,51).
+Una correlación positiva indica que dos sectores manifiestan patrones similares de interés. El **mapa de calor, los diez pares más afines y su interpretación para networking** se presentan junto con los otros resultados en el [último capítulo, «Resultados y comparación»](resultados.md).
 
 [Matriz completa de correlación de Spearman (CSV)](../data/correlacion_spearman_sectores.csv).
 
@@ -77,43 +77,35 @@ $$
 
 **Costo acumulado exacto:** 3,6180913422.
 
-### Programación de la tercera solución
+### Interpretación de la asignación
 
-| Horario | Auditorio 1 | Auditorio 2 | Auditorio 3 | Pérdidas |
-|---|---|---|---|---:|
-| 08:00–09:45 | Green Supply Chains | Tratamiento de aguas | Transformación digital | 1 |
-| 10:00–11:45 | Machine learning | Marketplaces | Gestión de Proyectos | 2 |
-| 14:00–15:45 | Big Data | Pricing | Simulación | 2 |
-| 16:00–17:45 | Planeación portuaria | Realidad virtual y aumentada | Sostenibilidad | 2 |
+La heurística recorre las doce temáticas en el orden ROC y selecciona en cada iteración la franja que genera el menor solapamiento de utilización U, respetando los tres auditorios por horario. La tabla anterior permite reproducir la elección secuencial y el costo acumulado sin redondeos intermedios.
 
-## 4. Tercera evaluación
+La **programación resultante**, con sus tres auditorios por horario y la comparación con ROC consecutivo y Solver, se presenta en [Resultados y comparación](resultados.md).
+
+## 4. Cómo se mide la conservación del interés ponderado
+
+Para comparar las tres agendas bajo el nuevo criterio se define la variable de asignación binaria \(z_{is}\), igual a 1 si la temática \(i\) se programa en la franja \(s\). La suma de U asignada a un horario menos la temática con mayor U para cada sector representa el interés ponderado perdido.
 
 $$
-P=\sum_j\sum_s\left[\sum_iU_{ji}z_{is}-\max_i(U_{ji}z_{is})\right]
+P=\sum_j\sum_s\left[\sum_i U_{ji}z_{is}-\max_i(U_{ji}z_{is})\right]
 $$
 
 $$
 \%\mathrm{atendido}=100\left(1-\frac{P}{\sum_{j,i}U_{ji}}\right)
 $$
 
-| Agenda | Asistencias perdidas | P | Interés ponderado atendido |
-|---|---:|---:|---:|
-| ROC agrupado consecutivamente | 18 | 12,30 | 62,02 % |
-| Optimización con Solver | 7 | **3,80** | 88,26 % |
-| ROC + heurística de afinidad | 7 | **3,62** | **88,83 %** |
-| Cota inferior | 7 | 3,62 | — |
+### Cota inferior del criterio ponderado
 
-El valor exacto para Solver es 3,8032088383, en lugar de los 4,00 que aparecen en la propuesta inicial. Se utiliza el cálculo sin redondeo para permitir una comparación rigurosa.
-
-### Prueba de optimalidad ponderada
-
-Cada sector con más de cuatro temáticas perderá por lo menos sus (d_j−4) utilizaciones más bajas:
+Un sector con \(d_j>4\) temáticas de interés debe renunciar como mínimo a \(d_j-4\) de ellas. La mejor situación posible sería que perdiera precisamente las de menor valor U:
 
 $$
-P^*\ge\sum_j\operatorname{sumaMenores}_{d_j-4}(U_{j,\cdot})=3{,}6180913422
+P^*\ge \sum_j\operatorname{sumaMenores}_{d_j-4}(U_{j,\cdot})
 $$
 
-La heurística alcanza esa cota: además de conservar el mínimo de siete oportunidades perdidas, minimiza el interés ponderado perdido en este caso. El Solver original **también sigue siendo óptimo** para las siete pérdidas, pero conserva una cantidad ligeramente menor de interés ponderado.
+Este procedimiento aporta una segunda evaluación, diferente al número de oportunidades perdidas \(L\). Que dos agendas tengan las mismas pérdidas no implica que conserven la misma cantidad de interés ponderado.
+
+**Los valores calculados, las cotas alcanzadas y la conclusión comparativa de los tres enfoques se reservan para el [capítulo final](resultados.md).**
 
 ## 5. Reproducibilidad y fuentes
 
