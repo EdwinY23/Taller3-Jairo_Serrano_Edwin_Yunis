@@ -38,7 +38,7 @@ Aplicar el mismo principio a cada columna con pesos sobre las filas, conservando
 
 Repetir los pasos 2 y 3 hasta que ninguna fila ni columna cambie de posición.
 
-En el archivo original del equipo, la disposición final de temáticas es:
+En la hoja `Hoja1` del [Excel final de los autores](../data/Taller_3_Jairo_Serrano_Edwin_Yunis.xlsx), la disposición final de temáticas es:
 
 1. Green Supply Chains
 2. Machine learning
