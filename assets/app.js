@@ -16,7 +16,7 @@ const sumLoss=s=>SECTORS.reduce((n,_,i)=>n+lossesFor(s,i),0);
 const interestTotal=A.reduce((n,row)=>n+row.reduce((p,q)=>p+q,0),0);
 const escapeHTML=t=>String(t).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 function getSelected(){return SCHEDULES[mode]}
-function setMethod(next){mode=next;$('method-roc').classList.toggle('active',mode==='roc');$('method-opt').classList.toggle('active',mode==='optimal');$('method-roc').setAttribute('aria-pressed',String(mode==='roc'));$('method-opt').setAttribute('aria-pressed',String(mode==='optimal'));render()}
+function setMethod(next){mode=next;$('method-roc').classList.toggle('active',mode==='roc');$('method-opt').classList.toggle('active',mode==='optimal');if($('method-heur'))$('method-heur').classList.toggle('active',mode==='heuristic');$('method-roc').setAttribute('aria-pressed',String(mode==='roc'));$('method-opt').setAttribute('aria-pressed',String(mode==='optimal'));if($('method-heur'))$('method-heur').setAttribute('aria-pressed',String(mode==='heuristic'));render()}
 function renderSchedule(){
  const schedule=getSelected();
  $('schedule-grid').innerHTML=schedule.map((group,h)=>{
@@ -32,7 +32,7 @@ function renderSchedule(){
  const visibleLoss=focus<0?sumLoss(schedule):lossesFor(schedule,focus);
  $('schedule-context').textContent=focus<0?'Todos los sectores · total '+visibleLoss+' asistencias perdidas':SECTORS[focus]+' · '+visibleLoss+' asistencias perdidas';
  $('current-loss').textContent=String(visibleLoss);
- $('schedule-title').textContent=mode==='optimal'?'Programa optimizado':'Programa derivado del ordenamiento binario';
+ $('schedule-title').textContent=mode==='optimal'?'Programa optimizado':mode==='heuristic'?'Programa ROC + heurística de afinidad':'Programa derivado del ordenamiento binario';
 }
 function renderSectorTable(){
  const schedule=getSelected();
@@ -55,7 +55,7 @@ function renderMatrix(){
 }
 function render(){
  renderSchedule();renderSectorTable();renderMatrix();
- $('mode-description').textContent=mode==='optimal'?'Distribución de 12 conferencias que alcanza la cota inferior de 7 asistencias perdidas.':'Agrupación consecutiva de las 12 columnas del ROC final, tres conferencias por horario.';
+ $('mode-description').textContent=mode==='optimal'?'Distribución de 12 conferencias que alcanza la cota inferior de 7 asistencias perdidas.':mode==='heuristic'?'Propuesta complementaria de Jairo: asignación de la secuencia ROC por menor solapamiento ponderado U, favoreciendo la participación en temáticas de sectores afines.':'Agrupación consecutiva de las 12 columnas del ROC final, tres conferencias por horario.';
 
 }
 function csvDownload(){
