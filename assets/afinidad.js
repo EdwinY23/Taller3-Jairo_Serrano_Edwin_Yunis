@@ -88,16 +88,6 @@ function affBuildComparison(){
  document.getElementById('aff-p-opt').textContent=affFormat(pOpt);
  document.getElementById('aff-p-heur').textContent=affFormat(pHeu);
 }
-function affDownloadCSV(file,header,rows){
- const encode=v=>'"'+String(v).replace(/"/g,'""')+'"';
- const csv='\uFEFF'+[header,...rows].map(row=>row.map(encode).join(';')).join('\r\n');
- const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
- a.href=url;a.download=file;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-}
-function affSetupDownloads(){
- document.getElementById('aff-spearman-csv').addEventListener('click',()=>affDownloadCSV('correlacion_spearman_sectores.csv',['Sector',...AFF_ROC_SECTORS.map(j=>SECTORS[j])],AFF_ROC_SECTORS.map(j=>[SECTORS[j],...AFF_ROC_SECTORS.map(k=>AFF_RHO[j][k].toFixed(8))])));
- document.getElementById('aff-u-csv').addEventListener('click',()=>affDownloadCSV('utilizacion_afinidad_U.csv',['Sector',...AFF_ROC_TOPICS.map(j=>TOPICS[j]),'Total sector'],AFF_ROC_SECTORS.map(j=>[SECTORS[j],...AFF_ROC_TOPICS.map(k=>AFF_U[j][k].toFixed(8)),AFF_U[j].reduce((a,b)=>a+b,0).toFixed(8)])));
-}
 function affRenderMath(){
  if(typeof window.renderMathInElement==='function'){
   window.renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});
