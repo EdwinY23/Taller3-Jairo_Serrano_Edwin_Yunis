@@ -56,7 +56,7 @@ function renderMatrix(){
 function render(){
  renderSchedule();renderSectorTable();renderMatrix();
  $('mode-description').textContent=mode==='optimal'?'Distribución de 12 conferencias que alcanza la cota inferior de 7 asistencias perdidas.':'Agrupación consecutiva de las 12 columnas del ROC final, tres conferencias por horario.';
- $('comparison-heading').textContent=mode==='optimal'?'Solución óptima · siete pérdidas inevitables':'Solución ROC · dieciocho pérdidas';
+
 }
 function csvDownload(){
  const header=['Sector'].concat(TOPICS),rows=SECTORS.map((s,i)=>[s].concat(A[i]));
