@@ -11,7 +11,7 @@ El Taller 3, «Tecnología de Grupos», de **Gestión de Operaciones**, propone 
 
 La matriz `a[i,j]` contiene **1** si el sector `i` manifestó interés en la temática `j` y **0** en caso contrario. La suma de sus elementos es **43**.
 
-La matriz exportada de la hoja de trabajo original está en [data/matriz_intereses.csv](../data/matriz_intereses.csv).
+La fuente principal es el [Excel final completo de Jairo Serrano y Edwin Yunis](../data/Taller_3_Jairo_Serrano_Edwin_Yunis.xlsx), que incluye las matrices de ordenamiento binario, las fórmulas de Excel y la solución Solver. Para reproducir el cuaderno Python sin procesar Excel se incluye también una exportación auxiliar a [CSV](../data/matriz_intereses.csv).
 
 ## Objetivo operativo
 
