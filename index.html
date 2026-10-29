@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Tecnología de Grupos | Jairo Serrano & Edwin Yunis</title>
+ <meta name="description" content="Dashboard académico del Taller 3 de Gestión de Operaciones: algoritmo de ordenamiento binario, optimización y programación de conferencias. Autores: Jairo Serrano y Edwin Yunis.">
+ <meta name="theme-color" content="#10213a">
+ <link rel="stylesheet" href="assets/style.css"><script src="assets/app.js" defer></script>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-icon">▦</div><div><strong>Taller 03</strong><small>Gestión de Operaciones</small></div></div>
+  <div class="nav-label">Explorar resultados</div>
+  <nav class="nav" aria-label="Navegación principal">
+   <a class="active" href="#resumen"><span class="nav-glyph">◫</span>Resumen ejecutivo</a>
+   <a href="#programacion"><span class="nav-glyph">▦</span>Programación</a>
+   <a href="#sectores"><span class="nav-glyph">◷</span>Análisis por sector</a>
+   <a href="#matriz"><span class="nav-glyph">▤</span>Matriz de intereses</a>
+   <a href="#metodo"><span class="nav-glyph">⌘</span>Ordenamiento binario</a>
+   <a href="#optimizacion"><span class="nav-glyph">◇</span>Modelo matemático</a>
+   <a href="#fuentes"><span class="nav-glyph">↗</span>Archivos y fuentes</a>
+  </nav>
+  <div class="side-bottom"><small>Trabajo académico</small><strong>Jairo Serrano</strong><strong>Edwin Yunis</strong><small>Maestría en Ingeniería Industrial · Universidad del Norte</small></div>
+</aside>
+<main class="main">
+<header class="top">
+ <div class="tag"><span class="live"></span>Proyecto académico · 2026</div>
+ <div class="top-actions"><select class="select only-mobile" id="nav-mobile" aria-label="Ir a sección">
+ <option value="">Navegación</option><option value="#resumen">Resumen</option><option value="#programacion">Programación</option><option value="#sectores">Sectores</option><option value="#matriz">Matriz</option><option value="#metodo">Metodología</option><option value="#optimizacion">Optimización</option></select>
+ <a class="top-link" href="https://github.com/EdwinY23/Taller3-Jairo_Serrano_Edwin_Yunis" target="_blank" rel="noopener">Ver repositorio ↗</a></div>
+</header>
+
+<section id="resumen">
+ <div class="hero"><div class="eyebrow" style="color:#a9e4de;margin-bottom:13px">Universidad del Norte · Maestría en Ingeniería Industrial</div>
+ <h1>Tecnología de Grupos<br>y programación óptima</h1>
+ <p>¿Cómo asignar doce temáticas a cuatro franjas y tres auditorios, minimizando los cruces de intereses entre los sectores empresariales? Comparación reproducible entre el ordenamiento binario (ROC) y optimización exacta.</p>
+ <div class="authors">Jairo Serrano <span class="sep">·</span> Edwin Yunis <span class="sep">·</span> Gestión de Operaciones</div></div>
+ <div class="kpis" aria-label="Indicadores generales">
+  <div class="kpi"><div class="cap">Sectores económicos</div><div class="number mono" id="kpi-sector">12</div><div class="hint">Filas de la matriz original</div></div>
+  <div class="kpi"><div class="cap">Temáticas</div><div class="number mono" id="kpi-topics">12</div><div class="hint">Distribuidas en cuatro horarios</div></div>
+  <div class="kpi"><div class="cap">Intereses registrados</div><div class="number mono" id="kpi-interests">43</div><div class="hint">Total de unos en la matriz</div></div>
+  <div class="kpi accent"><div class="cap">Reducción de asistencias perdidas</div><div class="number mono" id="kpi-delta">61,1%</div><div class="hint">Optimización respecto a ROC</div></div>
+ </div>
+</section>
+
+<section class="section" aria-labelledby="impact-heading">
+ <div class="section-header"><div><h2 id="impact-heading">El efecto de optimizar</h2><p>El ordenamiento binario permite identificar afinidades; el modelo de asignación incorpora las restricciones de concurrencia horaria.</p></div></div>
+ <div class="panel-grid">
+  <div class="panel">
+   <div class="panel-title"><h3>Oportunidades de asistencia perdidas</h3><span class="tag-inline">Menor es mejor</span></div>
+   <div class="compare-row"><b>ROC</b><div class="track"><div class="bar" id="bar-roc"></div></div><div class="data-number mono" id="loss-roc">18</div></div>
+   <div class="compare-row"><b>Optimización</b><div class="track"><div class="bar opt" id="bar-opt"></div></div><div class="data-number mono" id="loss-opt">7</div></div>
+   <p class="footnote">Indicador: si un sector tiene <em>k</em> conferencias de interés en un mismo horario, pierde <em>max(0, k − 1)</em> oportunidades.</p>
+   <div class="callout"><strong>Interpretación.</strong> Los siete conflictos restantes son inevitables con solo cuatro franjas horarias; la programación óptima alcanza la cota inferior demostrable.</div>
+  </div>
+  <div class="panel">
+   <h3>Aprovechamiento potencial de intereses</h3>
+   <div class="metric-inline"><strong>36 / 43</strong><span>83,72 %</span></div>
+   <div class="meter"><div class="fill" style="width:83.72%"></div></div>
+   <p class="footnote">La solución óptima permite cubrir 36 oportunidades sector–horario, frente a 25 con la agrupación consecutiva derivada del ROC.</p>
+   <hr class="section-rule">
+   <p class="subtle" style="font-size:12px"><strong>Por qué no es posible eliminar todos los conflictos:</strong> Agroindustria y Producción Textil tienen seis intereses cada uno; Turismo, Transporte y Manufactura tienen cinco. Ningún sector puede asistir a más de cuatro conferencias en cuatro horarios si sus representantes actúan como un único grupo.</p>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="programacion">
+ <div class="section-header"><div><h2 id="schedule-title">Programa optimizado</h2><p id="mode-description">Distribución de 12 conferencias que alcanza la cota inferior de siete asistencias perdidas.</p></div>
+ <div class="controls"><div class="segmented" role="group" aria-label="Comparar métodos">
+ <button id="method-opt" type="button" class="active" aria-pressed="true">Modelo óptimo</button>
+ <button id="method-roc" type="button" aria-pressed="false">Ordenamiento ROC</button></div>
+ <select class="select" id="sector-select" aria-label="Filtrar sector empresarial"><option value="-1">Todos los sectores</option></select></div></div>
+ <div class="panel" style="padding:17px 19px"><div class="panel-title"><div><strong>Agenda de conferencias</strong><div class="footnote" id="schedule-context" style="margin-top:2px">Todos los sectores · 7 asistencias perdidas</div></div><div class="data-number mono" style="font-size:13px"><span id="current-loss">7</span> <span style="font-weight:500;color:#64758c">pérdidas</span></div></div></div>
+ <div class="schedule" id="schedule-grid" aria-live="polite"></div>
+ <p class="footnote">Selecciona un sector para resaltar las temáticas que le interesan. Cada franja contiene tres conferencias simultáneas, una por auditorio. Los auditorios son equivalentes y pueden intercambiarse dentro de un mismo horario.</p>
+</section>
+
+<section class="section" id="sectores">
+ <div class="section-header"><div><h2>Participación por sector</h2><p>Intereses originales, oportunidades cubiertas y asistencias perdidas según el horario seleccionado.</p></div></div>
+ <div class="panel-grid">
+  <div class="panel"><h3>Cobertura del filtro seleccionado</h3><div class="metric-inline"><strong id="covered-value">36</strong><span id="coverage-value">83,7%</span></div><div class="meter"><div id="coverage-fill" class="fill" style="width:83.72%"></div></div><p class="footnote" id="sector-detail">43 intereses sector–temática · 12 sectores</p></div>
+  <div class="panel"><h3>Definición del indicador</h3><div class="formula">Pérdidas(i,h) = max(0, ∑ intereses(i,h) − 1)</div><p class="subtle" style="font-size:12px">Se contabiliza como aprovechable una temática de interés por sector y por franja, porque las conferencias en los tres auditorios ocurren al mismo tiempo.</p></div>
+ </div>
+ <div class="panel" style="margin-top:16px;padding:0;overflow:hidden"><div class="table-wrap"><table class="data-table"><thead><tr><th>Sector económico</th><th class="num">Intereses</th><th class="num">Aprovechables</th><th class="num">Perdidas</th><th>Oportunidades cubiertas</th></tr></thead><tbody id="sectors-body"></tbody></table></div></div>
+</section>
+
+<section class="section" id="matriz">
+ <div class="section-header"><div><h2>Matriz sector–temática</h2><p>Reproducción fiel de los datos 0–1 del archivo de trabajo: 1 significa que el sector manifestó interés en participar.</p></div><button class="btn" id="export-data" type="button">Descargar matriz CSV ↓</button></div>
+ <div class="panel"><div class="matrix-scroll" id="matrix-holder" aria-label="Matriz binaria de intereses"></div><p class="footnote">La matriz original tiene 12 filas × 12 columnas y contiene exactamente 43 registros de interés.</p></div>
+</section>
+
+<section class="section" id="metodo">
+ <div class="section-header"><div><h2>Metodología · Ordenamiento binario</h2><p>Tratamiento de datos explicado en las diapositivas 12–15 del profesor Alcides R. Santander.</p></div></div>
+ <div class="method-grid">
+  <div class="method-card"><div class="step">01</div><h3>Matriz de incidencia</h3><p>Filas = sectores; columnas = temáticas. Se marca 1 para una temática de interés y 0 en caso contrario.</p><div class="formula">aᵢⱼ ∈ {0,1}</div></div>
+  <div class="method-card"><div class="step">02</div><h3>Pesos y ordenamiento</h3><p>Asignar pesos de potencias de dos a las posiciones y ordenar filas por puntuación descendente; repetir sobre columnas.</p><div class="formula">pᵢ = ∑ aᵢⱼ · 2^(12−j)</div></div>
+  <div class="method-card"><div class="step">03</div><h3>Estabilidad y agenda</h3><p>Alternar el ordenamiento de filas y columnas hasta que no cambie. Para la agenda ROC se agrupan columnas consecutivas de tres en tres.</p><div class="formula">4 grupos × 3 temáticas</div></div>
+ </div>
+ <div class="warning" style="margin-top:16px"><strong>Importante:</strong> dividir las columnas ordenadas en cuatro grupos consecutivos de tres es una regla de programación aplicada después del ROC, no una propiedad de optimalidad del algoritmo de ordenamiento binario.</div>
+</section>
+
+<section class="section" id="optimizacion">
+ <div class="section-header"><div><h2>Modelo de optimización</h2><p>Asignación binaria de conferencias a franjas, con una asistencia potencial por sector y horario.</p></div></div>
+ <div class="panel-grid">
+  <div class="panel">
+   <h3>Variables y objetivo</h3>
+   <p><strong>x<sub>jh</sub></strong> = 1 si la temática j se asigna al horario h; 0 en caso contrario.</p>
+   <p><strong>y<sub>ih</sub></strong> = 1 si el sector i tiene al menos una conferencia de interés disponible en h.</p>
+   <div class="formula">max Z = ∑ᵢ ∑ₕ yᵢₕ</div>
+   <div class="formula">L = 43 − Z</div>
+   <p class="subtle" style="font-size:12px">Se minimizan las oportunidades de asistencia perdidas, equivalentes a maximizar oportunidades aprovechables.</p>
+  </div>
+  <div class="panel">
+   <h3>Restricciones del modelo</h3>
+   <div class="formula">∑ₕ xⱼₕ = 1  (cada temática exactamente una vez)</div>
+   <div class="formula">∑ⱼ xⱼₕ = 3  (tres auditorios por horario)</div>
+   <div class="formula">yᵢₕ ≤ ∑ⱼ aᵢⱼ xⱼₕ</div>
+   <div class="formula">xⱼₕ, yᵢₕ ∈ {0,1}</div>
+   <p class="subtle" style="font-size:12px">La maximización obliga a yᵢₕ a tomar 1 siempre que exista un interés programado en esa franja.</p>
+  </div>
+ </div>
+ <div class="panel" style="margin-top:16px">
+ <div class="panel-title"><h3>Certificado de optimalidad</h3><span class="tag-inline">Óptimo probado</span></div>
+ <p>La cota inferior se calcula sin Solver: si un sector tiene <em>dᵢ</em> temáticas de interés pero únicamente cuatro horarios, perderá como mínimo <em>max(0, dᵢ − 4)</em> oportunidades.</p>
+ <div class="formula">L* ≥ ∑ᵢ max(0, dᵢ − 4) = 2 + 2 + 1 + 1 + 1 = 7</div>
+ <p>La agenda optimizada alcanza exactamente <strong>7</strong> asistencias perdidas. Por lo tanto alcanza la cota inferior y es globalmente óptima bajo el criterio definido.</p>
+ <p class="footnote">Comprobación adicional: el conjunto de 12 temáticas admite <strong id="solutions-count">15.400</strong> particiones no etiquetadas en cuatro grupos de tres. Su enumeración exhaustiva produjo un mínimo de 7, alcanzado por 72 particiones. Auditorios y orden de franjas son simétricos.</p>
+ </div>
+</section>
+
+<section class="section" id="fuentes">
+ <div class="section-header"><div><h2>Documentación y archivos</h2><p>Material del taller y fuentes de cálculo que respaldan el dashboard.</p></div></div>
+ <div class="references">
+  <div class="reference"><span class="tag-inline">Fuente de datos</span><h3 style="margin-top:12px">Matriz original en Excel</h3><p>«Taller 3 - Jairo Serrano - Edwin Yunis.xlsx», hoja «Hoja1». Se respetan las 12 temáticas y los intereses de los 12 sectores.</p><a href="data/matriz_intereses.csv" download>Descargar CSV verificado ↗</a></div>
+  <div class="reference"><span class="tag-inline">Enunciado</span><h3 style="margin-top:12px">Taller 3 · Tecnología de Grupos</h3><p>Profesor Alcides R. Santander M., Gestión de Operaciones, Universidad del Norte. Se utilizan cuatro franjas y tres auditorios.</p><a href="book/taller.md">Leer formulación del taller ↗</a></div>
+  <div class="reference"><span class="tag-inline">Metodología</span><h3 style="margin-top:12px">Ordenamiento binario</h3><p>Basado en las diapositivas 12–15 de «Integración de Procesos y Distribución Física».</p><a href="book/ordenamiento.md">Ver explicación paso a paso ↗</a></div>
+  <div class="reference"><span class="tag-inline">Reproducibilidad</span><h3 style="margin-top:12px">Modelo de optimización y verificación</h3><p>Formulación del problema, criterio, programación óptima y cálculo de conflictos.</p><a href="book/optimizacion.md">Ver modelo y resultados ↗</a></div>
+ </div>
+</section>
+<footer class="footer">Taller 3 · Tecnología de Grupos · Jairo Serrano y Edwin Yunis · Universidad del Norte · Barranquilla, Colombia · 2026<br>Dashboard académico elaborado con datos del taller; no representa registros empresariales observados fuera del caso de estudio.</footer>
+</main>
+</div>
+</body></html>
