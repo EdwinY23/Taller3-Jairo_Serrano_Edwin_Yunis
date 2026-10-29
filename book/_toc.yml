@@ -1,0 +1,8 @@
+format: jb-book
+root: index
+chapters:
+  - file: taller
+  - file: ordenamiento
+  - file: optimizacion
+  - file: resultados
+  - file: verificacion
