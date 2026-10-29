@@ -5,6 +5,9 @@
 body{background:#f5f8fc} .book-root{display:flex;min-height:100vh}.book-sidebar{width:260px;background:#10213a;color:#bfcde1;flex-shrink:0;padding:27px 20px;position:sticky;top:0;height:100vh}.book-sidebar h2{color:#fff;font-size:21px}.book-sidebar p{color:#a3b4cb;font-size:12px}.book-nav{display:grid;gap:8px;margin-top:30px}.book-nav button{padding:12px 13px;text-align:left;background:transparent;border:0;color:#b6cce0;border-radius:9px;font-weight:600}.book-nav button:hover,.book-nav button.active{color:#fff;background:#2b4261}.book-content{padding:32px 45px;max-width:1010px;width:100%;margin:0 auto}.book-top{display:flex;justify-content:space-between;align-items:center;margin:0 0 25px;padding-bottom:15px;border-bottom:1px solid #dce4ee}.book-page{background:#fff;box-shadow:0 6px 30px rgba(22,39,70,.055);border:1px solid #e5eaf2;border-radius:17px;padding:40px 48px;min-height:66vh}.book-page h1{font-size:34px}.book-page h2{font-size:24px;margin-top:28px}.book-page h3{font-size:18px;margin-top:22px}.book-page p,.book-page li{font-size:14px;line-height:1.8}.book-page code{background:#ecf2fa;padding:2px 5px;border-radius:4px;font-size:12px}.book-page pre{padding:20px;background:#f1f5f9;overflow:auto;border-radius:10px}.book-page pre code{background:transparent;padding:0}.book-page table{border-collapse:collapse;width:100%;font-size:12px}.book-page th,.book-page td{padding:11px;text-align:left;border-bottom:1px solid #e6eaf2}.book-page blockquote{border-left:3px solid #008e89;padding:12px 15px;background:#eff9f7;margin:18px 0}.book-page img{max-width:100%}.book-page hr{border:0;border-top:1px solid #e7ecf4;margin:30px 0}.book-page a{word-break:break-word}
 .mobile-chapters{display:none}@media(max-width:780px){.book-sidebar{display:none}.book-content{padding:12px}.book-page{padding:24px 21px}.mobile-chapters{display:block;width:100%;margin:12px 0;padding:12px}}
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"></script></head>
 <body><div class="book-root"><aside class="book-sidebar">
 <div class="eyebrow" style="color:#81cfc8">Jupyter Book · versión navegable</div><h2>Tecnología de Grupos</h2><p>Jairo Serrano y Edwin Yunis<br>Universidad del Norte<br>Gestión de Operaciones · 2026</p>
@@ -17,7 +20,7 @@ body{background:#f5f8fc} .book-root{display:flex;min-height:100vh}.book-sidebar{
 <p class="footer">Jairo Serrano y Edwin Yunis · 2026 · Fuente: Taller 3 y diapositivas de Alcides R. Santander.</p>
 </main></div>
 <script>
-const PAGES=[['Introducción','index.md'],['Enunciado y datos','taller.md'],['Ordenamiento binario','ordenamiento.md'],['Modelo de optimización','optimizacion.md'],['Resultados y comparación','resultados.md']];
+const PAGES=[['Introducción','index.md'],['Enunciado y datos','taller.md'],['Ordenamiento binario','ordenamiento.md'],['Modelo de optimización','optimizacion.md'],['Resultados y comparación','resultados.md'],['Afinidad · Spearman y networking','afinidad.md']];
 const nav=document.getElementById('navigation'),drop=document.getElementById('mobile-chapters');
 PAGES.forEach(([name,file])=>{const b=document.createElement('button');b.textContent=name;b.dataset.file=file;b.onclick=()=>openPage(file);nav.appendChild(b);const o=document.createElement('option');o.value=file;o.textContent=name;drop.appendChild(o)});
 drop.addEventListener('change',e=>openPage(e.target.value));
@@ -31,6 +34,7 @@ async function openPage(file){
  const md=await res.text();
  if(window.marked&&window.marked.parse){panel.innerHTML=window.marked.parse(md);panel.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')?.startsWith('../data'))a.setAttribute('download','')})}
  else{panel.textContent=md;panel.style.whiteSpace='pre-wrap'}
+ if(typeof window.renderMathInElement==='function')window.renderMathInElement(panel,{delimiters:[{left:'$',right:'$',display:true},{left:'\(',right:'\)',display:false},{left:'\[',right:'\]',display:true}],throwOnError:false});
  window.scrollTo({top:0,behavior:'instant'});
  }catch(e){panel.innerHTML='<h2>Capítulo no disponible</h2><p>No se pudo cargar este capítulo desde la web.</p><p><a href="https://github.com/EdwinY23/Taller3-Jairo_Serrano_Edwin_Yunis/tree/main/book" target="_blank" rel="noopener">Leer documentos en GitHub</a></p>'}
 }
