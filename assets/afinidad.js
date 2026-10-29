@@ -27,7 +27,7 @@ function affGreedy(){
    costs.forEach((v,s)=>{if(v!==null&&v<best-1e-10){best=v;chosen=s}});
    if(chosen<0)throw new Error('No quedan franjas disponibles');
    slots[chosen].push(topic);
-   steps.push({n:idx+1,topic,slot:chosen,cost:best,cumulative:slots.reduce((x,g)=>x,0),choices:costs});
+   steps.push({n:idx+1,topic,slot:chosen,cost:best,cumulative:0,choices:costs});
  });
  let accum=0;steps.forEach(step=>{accum+=step.cost;step.cumulative=accum});
  return {slots,steps};
@@ -109,7 +109,7 @@ function affStart(){
   &&sumLoss(SCHEDULES.heuristic)===7 &&Math.abs(AFF_TOTAL-32.3966204153)<1e-8
   &&Math.abs(affLoss(SCHEDULES.heuristic)-3.618091342)<1e-7;
  if(!verified){document.getElementById('aff-method-note').textContent='Advertencia: la verificación numérica no coincide. Revisar matriz antes de usar resultados.';return}
- affBuildHeatmap();affBuildPairs();affBuildU();affBuildSteps();affBuildComparison();affSetupDownloads();
+ affBuildHeatmap();affBuildPairs();affBuildU();affBuildSteps();affBuildComparison();
  const btn=document.getElementById('method-heur');
  btn.addEventListener('click',()=>setMethod('heuristic'));
  // No interfiere con los dos botones previos.
