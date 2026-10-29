@@ -55,7 +55,7 @@ function renderMatrix(){
 }
 function render(){
  renderSchedule();renderSectorTable();renderMatrix();
- $('mode-description').textContent=mode==='optimal'?'Distribución de 12 conferencias que alcanza la cota inferior de 7 asistencias perdidas.':mode==='heuristic'?'Propuesta complementaria de Jairo: asignación de la secuencia ROC por menor solapamiento ponderado U, favoreciendo la participación en temáticas de sectores afines.':'Agrupación consecutiva de las 12 columnas del ROC final, tres conferencias por horario.';
+ $('mode-description').textContent=mode==='optimal'?'Distribución de 12 conferencias que alcanza la cota inferior de 7 asistencias perdidas.':mode==='heuristic'?'Propuesta complementaria de afinidad: asignación de la secuencia ROC por menor solapamiento ponderado U, favoreciendo la participación en temáticas de sectores afines.':'Agrupación consecutiva de las 12 columnas del ROC final, tres conferencias por horario.';
 
 }
 function csvDownload(){
