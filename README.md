@@ -32,20 +32,26 @@ Los valores nuevos se obtienen desde la matriz original sin redondeos intermedio
 
 La solución original del Solver no se modifica; la tercera propuesta permite valorar la similitud de intereses de los sectores, no solo el número de conferencias que pueden asistir.
 
-## Resultados
+## Resultados y comparación final
 
-| Indicador | Ordenamiento binario + grupos de 3 | Optimización |
-|---|---:|---:|
-| Temáticas | 12 | 12 |
-| Franjas | 4 | 4 |
-| Auditorios por franja | 3 | 3 |
-| Intereses de la matriz | 43 | 43 |
-| Asistencias aprovechables | 25 | 36 |
-| Oportunidades perdidas | 18 | **7** |
+La exposición presenta primero el ordenamiento binario, luego la optimización y después la metodología **Spearman + utilización U + heurística ROC**. Finalmente, el [capítulo «Resultados y comparación»](book/resultados.md) reúne las tres programaciones y el análisis de afinidad.
+
+| Indicador | ROC consecutivo | Solver | ROC + heurística U |
+|---|---:|---:|---:|
+| Temáticas programadas | 12 | 12 | 12 |
+| Horarios / auditorios por horario | 4 / 3 | 4 / 3 | 4 / 3 |
+| Intereses originales | 43 | 43 | 43 |
+| Oportunidades aprovechables | 25 | 36 | 36 |
+| Asistencias perdidas | **18** | **7** | **7** |
+| Interés ponderado perdido P | 12,30 | 3,80 | **3,62** |
+| Interés ponderado atendido | 62,02 % | 88,26 % | **88,83 %** |
+
+Spearman identifica diez pares con correlación ≥ 0,50, entre ellos **Minería–Recursos forestales (0,82)**, **Sector Financiero–Administración Pública (0,67)** y **Administración Pública–Educación (0,67)**. Son afinidades de interés y no medidas directas de acuerdos o reuniones.
 
 - **Reducción de pérdidas:** `(18 - 7) / 18 × 100 = 61,11 %`.
-- La cota inferior de pérdidas es **7** por los sectores con más de cuatro intereses.
-- Se verificó el resultado mediante enumeración exacta de **15.400** particiones; **72** alcanzan el óptimo.
+- **Cota inferior de pérdidas:** 7; tanto Solver como la heurística de afinidad la alcanzan.
+- **Cota inferior ponderada:** 3,6180913422; la heurística de afinidad también la alcanza.
+- **Verificación ROC/Solver:** enumeración exacta de **15.400** particiones, de las cuales **72** alcanzan el óptimo en pérdidas.
 
 ## Archivos del proyecto
 
@@ -60,8 +66,9 @@ La solución original del Solver no se modifica; la tercera propuesta permite va
 | [book/taller.md](book/taller.md) | Enunciado y supuestos |
 | [book/ordenamiento.md](book/ordenamiento.md) | Cálculo del algoritmo de ordenamiento binario |
 | [book/optimizacion.md](book/optimizacion.md) | Formulación de programación entera binaria |
-| [book/resultados.md](book/resultados.md) | Agendas y comparación |
-| [book/verificacion.ipynb](book/verificacion.ipynb) | Notebook reproducible sin bibliotecas externas |
+| [book/afinidad.md](book/afinidad.md) | Correlación Spearman, utilización U y explicación de la heurística de asignación |
+| [book/resultados.md](book/resultados.md) | Capítulo final: Spearman, las tres agendas y comparación con ambos criterios |
+| [book/verificacion.ipynb](book/verificacion.ipynb) | Notebook reproducible con Python, NumPy y SciPy (Spearman), optimización y validaciones |
 | [book/_config.yml](book/_config.yml), [book/_toc.yml](book/_toc.yml) | Configuración para generar un Jupyter Book |
 
 ## Publicar el dashboard con GitHub Pages
