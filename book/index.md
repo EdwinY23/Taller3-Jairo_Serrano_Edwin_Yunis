@@ -23,6 +23,8 @@ Este libro académico documenta el procedimiento del taller del profesor **Alcid
 
 **Reducción de asistencias perdidas:** `(18-7)/18 = 61,11 %`.
 
+**Nueva ampliación:** [Spearman, utilización por afinidad U y tercera evaluación orientada a networking](afinidad.md).
+
 ## Guía de lectura
 
 - **Enunciado:** contexto, datos y restricciones.
