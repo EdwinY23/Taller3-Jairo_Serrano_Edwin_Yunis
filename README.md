@@ -16,6 +16,22 @@
 
 > La dirección funciona una vez que se habilita GitHub Pages. La conexión de ChatGPT puede escribir en el repositorio, pero no administrar la configuración de GitHub Pages.
 
+## Ampliación: afinidad sectorial y networking
+
+Se conserva la programación Solver original de Jairo Serrano y Edwin Yunis y se agrega una tercera alternativa: **ROC + heurística de utilización por afinidad U**.
+
+| Evaluación | ROC consecutivo | Solver original | Heurística de afinidad U |
+|---|---:|---:|---:|
+| Asistencias perdidas | **18** | **7** | **7** |
+| Interés ponderado perdido P | 12,30 | 3,80 | **3,62** |
+| Interés ponderado atendido | 62,02 % | 88,26 % | **88,83 %** |
+
+Los valores nuevos se obtienen desde la matriz original sin redondeos intermedios; el total U es 32,3966204153.
+
+**Archivos nuevos:** [capítulo de networking](book/afinidad.md) · [correlación Spearman CSV](data/correlacion_spearman_sectores.csv) · [utilización U CSV](data/utilizacion_afinidad_U.csv). El [notebook original ampliado](book/verificacion.ipynb) verifica todos los cálculos con SciPy.
+
+La solución original del Solver no se modifica; la tercera propuesta permite valorar la similitud de intereses de los sectores, no solo el número de conferencias que pueden asistir.
+
 ## Resultados
 
 | Indicador | Ordenamiento binario + grupos de 3 | Optimización |
