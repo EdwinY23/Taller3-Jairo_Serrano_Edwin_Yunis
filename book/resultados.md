@@ -107,6 +107,9 @@ Esta es la programación calculada en la hoja \`Optimizacion\` del [Excel final 
 
 **Resultado Solver:** 7 oportunidades perdidas y **36 de 43** intereses potencialmente aprovechables. La solución alcanza la cota inferior de 7 del criterio \(L\).
 
+> **Nota de verificación del Excel original:** en la hoja `Optimizacion`, algunas etiquetas de sector en `B12:B23` no corresponden fila por fila con las referencias `SUMAPRODUCTO` dirigidas a `Hoja1!C4:N15`. Los **resultados totales** de 36 y 7 son correctos; para atribuir indicadores a cada sector debe utilizarse el orden original de `Hoja1`. El dashboard aplica esa correspondencia.
+
+
 ### Propuesta 3. ROC + heurística de utilización por afinidad U
 
 Primero se calcula **Spearman** para identificar coincidencias entre sectores y construir la matriz \(U\). Después, se recorren las temáticas en el **orden ROC** y cada una se asigna a la franja que genera el **menor solapamiento de utilización ponderada**, respetando la capacidad de tres auditorios. En caso de empate se escoge la primera franja disponible.
@@ -190,7 +193,7 @@ $$
 L^*\ge \sum_i\max(0,d_i-4)=2+2+1+1+1=7
 $$
 
-Tanto Solver como ROC + heurística U alcanzan exactamente esa cota y son **óptimos para el criterio de asistencias perdidas**.
+Tanto Solver como ROC + heurística U alcanzan exactamente esa cota y son **óptimos para el criterio de asistencias perdidas**. La enumeración exhaustiva de **15.400 particiones** posibles de 12 temáticas en cuatro grupos de tres identificó **72 particiones óptimas** bajo este criterio.
 
 ### Cota de interés ponderado perdido
 
