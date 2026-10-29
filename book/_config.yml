@@ -1,0 +1,13 @@
+title: "Taller 3 · Tecnología de Grupos"
+author: "Jairo Serrano y Edwin Yunis"
+logo: ""
+execute:
+  execute_notebooks: off
+html:
+  use_repository_button: true
+  use_issues_button: false
+  baseurl: "https://edwiny23.github.io/Taller3-Jairo_Serrano_Edwin_Yunis/"
+repository:
+  url: "https://github.com/EdwinY23/Taller3-Jairo_Serrano_Edwin_Yunis"
+  path_to_book: book
+  branch: main
