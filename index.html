@@ -26,7 +26,7 @@
    <a href="#optimizacion"><span class="nav-glyph">◇</span>Modelo matemático</a>
    <a href="#spearman"><span class="nav-glyph">▦</span>Correlación de Spearman</a>
    <a href="#afinidad"><span class="nav-glyph">⌁</span>Utilización y heurística</a>
-   <a href="#comparacion-afinidad"><span class="nav-glyph">▥</span>Tercera evaluación</a>
+   <a href="#comparacion-afinidad"><span class="nav-glyph">▥</span>Resultados y comparación</a>
    <a href="#fuentes"><span class="nav-glyph">↗</span>Archivos y fuentes</a>
   </nav>
   <div class="side-bottom"><small>Trabajo académico</small><strong>Jairo Serrano</strong><strong>Edwin Yunis</strong><small>Maestría en Ingeniería Industrial · Universidad del Norte</small></div>
@@ -35,7 +35,7 @@
 <header class="top">
  <div class="tag"><span class="live"></span>Proyecto académico · 2026</div>
  <div class="top-actions"><select class="select only-mobile" id="nav-mobile" aria-label="Ir a sección">
- <option value="">Navegación</option><option value="#resumen">Resumen</option><option value="#programacion">Programación</option><option value="#sectores">Sectores</option><option value="#matriz">Matriz</option><option value="#metodo">Metodología</option><option value="#optimizacion">Optimización</option><option value="#spearman">Spearman</option><option value="#afinidad">Afinidad</option><option value="#comparacion-afinidad">Comparación U</option></select>
+ <option value="">Navegación</option><option value="#resumen">Resumen</option><option value="#programacion">Programación</option><option value="#sectores">Sectores</option><option value="#matriz">Matriz</option><option value="#metodo">Metodología</option><option value="#optimizacion">Optimización</option><option value="#spearman">Spearman</option><option value="#afinidad">Afinidad</option><option value="#comparacion-afinidad">Resultados · 3 enfoques</option></select>
  <a class="top-link" href="book/index.html">Abrir Jupyter Book ↗</a><a class="top-link" href="https://github.com/EdwinY23/Taller3-Jairo_Serrano_Edwin_Yunis" target="_blank" rel="noopener">Repositorio ↗</a></div>
 </header>
 
@@ -220,7 +220,12 @@
 </section>
 
 <section class="section" id="comparacion-afinidad">
- <div class="section-header"><div><h2>Tercera evaluación: interés ponderado conservado</h2><p>Se añade un criterio orientado a networking sin reemplazar la evaluación original de asistencias perdidas.</p></div></div>
+ <div class="section-header"><div><h2>Resultados y comparación de los tres enfoques</h2><p>El análisis de Spearman alimenta la utilización por afinidad U; se comparan las tres agendas sin cambiar los resultados originales de ROC y Solver.</p></div></div>
+ <div class="panel" style="margin-bottom:16px">
+  <div class="panel-title"><h3>Hallazgos de Spearman para networking</h3><span class="tag-inline">10 pares con ρ ≥ 0,50</span></div>
+  <p>Las afinidades más elevadas aparecen entre <strong>Minería y Recursos forestales (ρ = 0,82)</strong>, <strong>Sector Financiero y Administración Pública (ρ = 0,67)</strong> y <strong>Administración Pública y Educación (ρ = 0,67)</strong>. Estos resultados orientan la ponderación U y la tercera programación.</p>
+  <p class="footnote">Spearman mide similitud de intereses, no contactos reales ni colaboraciones verificadas. <a href="#spearman">Ver el mapa de calor y los diez pares sectoriales</a> · <a href="book/index.html#resultados">Consultar el capítulo final con las tres agendas completas</a>.</p>
+ </div>
  <div class="panel-grid">
   <div class="panel">
    <h3>Medir interés ponderado perdido</h3>
