@@ -4,6 +4,6 @@ chapters:
   - file: taller
   - file: ordenamiento
   - file: optimizacion
-  - file: resultados
   - file: afinidad
   - file: verificacion
+  - file: resultados
