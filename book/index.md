@@ -8,6 +8,8 @@ Este libro académico documenta el procedimiento del taller del profesor **Alcid
 
 **Dashboard interactivo:** [Abrir página principal](../index.html).
 
+**Archivo Excel de los autores:** [Descargar libro de trabajo completo (.xlsx)](../data/Taller_3_Jairo_Serrano_Edwin_Yunis.xlsx). Contiene `Hoja1` y `Optimizacion`, con las fórmulas y los valores resueltos de Solver.
+
 ## Resultados principales
 
 | Indicador | ROC + agrupación consecutiva | Optimización |
