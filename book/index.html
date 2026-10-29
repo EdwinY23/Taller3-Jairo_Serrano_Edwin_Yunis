@@ -20,7 +20,7 @@ body{background:#f5f8fc} .book-root{display:flex;min-height:100vh}.book-sidebar{
 <p class="footer">Jairo Serrano y Edwin Yunis · 2026 · Fuente: Taller 3 y diapositivas de Alcides R. Santander.</p>
 </main></div>
 <script>
-const PAGES=[['Introducción','index.md'],['Enunciado y datos','taller.md'],['Ordenamiento binario','ordenamiento.md'],['Modelo de optimización','optimizacion.md'],['Resultados y comparación','resultados.md'],['Afinidad · Spearman y networking','afinidad.md']];
+const PAGES=[['Introducción','index.md'],['Enunciado y datos','taller.md'],['Ordenamiento binario','ordenamiento.md'],['Modelo de optimización','optimizacion.md'],['Afinidad · Spearman y networking','afinidad.md'],['Resultados y comparación · tres enfoques','resultados.md']];
 const nav=document.getElementById('navigation'),drop=document.getElementById('mobile-chapters');
 PAGES.forEach(([name,file])=>{const b=document.createElement('button');b.textContent=name;b.dataset.file=file;b.onclick=()=>openPage(file);nav.appendChild(b);const o=document.createElement('option');o.value=file;o.textContent=name;drop.appendChild(o)});
 drop.addEventListener('change',e=>openPage(e.target.value));
