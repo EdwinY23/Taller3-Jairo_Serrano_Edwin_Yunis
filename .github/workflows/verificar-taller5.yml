@@ -1,0 +1,55 @@
+name: Verificar Taller 5 Clean King
+
+on:
+  push:
+    paths:
+      - 'taller5-planeacion-operaciones/**'
+      - '.github/workflows/verificar-taller5.yml'
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar bibliotecas y solver CBC
+        run: python -m pip install "pulp[cbc]" pandas matplotlib nbformat
+      - name: Validar estructura y sintaxis del notebook
+        run: |
+          python - <<'PY'
+          import nbformat
+          path='taller5-planeacion-operaciones/Taller5_Planeacion_CleanKing.ipynb'
+          nb=nbformat.read(path,as_version=4)
+          nbformat.validate(nb)
+          for i,c in enumerate(nb.cells):
+              if c.cell_type!='code' or c.source.startswith('%pip'): continue
+              compile(c.source,f'celda_{i}','exec')
+          print('Notebook válido:',len(nb.cells),'celdas')
+          PY
+      - name: Resolver MILP con PuLP CBC y validar balances
+        run: |
+          python taller5-planeacion-operaciones/modelo_pulp.py --tiempo 240 --brecha 0.0005 --salida /tmp/resultado_taller5
+      - name: Comprobar salidas del modelo
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          folder='/tmp/resultado_taller5/'
+          a=pd.read_csv(folder+'resumen_mensual.csv')
+          b=pd.read_csv(folder+'detalle_por_producto.csv')
+          c=pd.read_csv(folder+'desglose_costos.csv')
+          assert len(a)==6 and len(b)==24 and len(c)==48
+          assert (b.Balance_B_0==0).all() and (b.Balance_M_0==0).all()
+          assert (a.Cajas_despachadas_medellin<=1500*a.Viajes_medellin).all()
+          assert (a.Inventario_final_B<=50000).all() and (a.Inventario_final_M<=38000).all()
+          print('MILP validado y costos:',a.Costo_mensual_COP.sum())
+          PY
