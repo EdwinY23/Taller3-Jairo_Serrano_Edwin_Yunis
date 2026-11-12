@@ -1,0 +1,7 @@
+﻿Mes,Días_hábiles,Lotes_producidos,Cajas_brutas,Cajas_QC_destructivas,Cajas_utilizables,Demanda_B_mas_muestras,Demanda_M_mas_muestras,Mezcladoras_turno_1,Mezcladoras_turno_2,Turnos_activos,Supervisores_turno_1,Supervisores_turno_2,Mezcladoras_utilizadas_mes,Operarios_reasignables_mes,Viajes_medellin,Cajas_despachadas_medellin,Inventario_final_B,Inventario_final_M,Minutos_productivos_turno_1,Minutos_disponibles_turno_1,Capacidad_no_aprovechada_min_turno_1,Minutos_productivos_turno_2,Minutos_disponibles_turno_2,Capacidad_no_aprovechada_min_turno_2,Costo_mensual_COP
+Junio,22,1469,146900,5876,141024,80120,64200,6,2,2,2,1,6,0,51,76500,15,22095,52539,52588.8,49.8,17271,17529.6,258.6,972181897.5
+Julio,23,1194,119400,4776,114624,89120,47200,6,0,1,2,0,6,0,17,25500,19,395,54978,54979.2,1.2,0,0,0,623891887.5
+Agosto,24,1189,118900,4756,114144,69120,39700,6,0,1,2,0,6,0,30,45000,43,5695,56913,57369.6,456.6,0,0,0,716641315
+Septiembre,23,1550,155000,6200,148800,88120,65200,6,2,2,2,1,6,0,41,60723,0,1218,54963,54979.2,16.2,18322,18326.4,4.4,939163775
+Octubre,22,1627,162700,6508,156192,84120,57200,6,3,2,2,1,6,0,48,72000,72,16018,52550,52588.8,38.8,25236,26294.4,1058.4,1026914640
+Noviembre,23,1645,164500,6580,157920,101120,72700,6,3,2,2,1,6,0,38,56872,0,190,54933,54979.2,46.2,23772,27489.6,3717.6,973057960
