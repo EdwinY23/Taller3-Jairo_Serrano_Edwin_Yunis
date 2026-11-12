@@ -1,6 +1,5 @@
-"""Taller 5 Planeación GOP — Clean King. Adaptación verificable de Guia.ipynb.
-
-Autoría: solución académica basada en el taller del profesor Alcides R. Santander.
+"""Taller 5 · Planeación de Operaciones — Clean King.
+Autores: Jairo Serrano y Edwin Yunis.
 Dependencias: pulp (CBC), pandas. Para ejecutar: python modelo_pulp.py
 Unidades: variables físicas en lotes/cajas/minutos; costos en millones de COP.
 """
