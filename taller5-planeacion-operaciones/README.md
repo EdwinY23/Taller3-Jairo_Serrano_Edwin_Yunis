@@ -1,7 +1,8 @@
 # Taller 5 — Planeación de Operaciones: Clean King
 
 **IIN 7171 · Gestión de Operaciones · Maestría y Doctorado en Ingeniería Industrial · Universidad del Norte**  
-**Profesor:** Alcides R. Santander M., Ph.D.
+**Profesor:** Alcides R. Santander M., Ph.D.  
+**Autores:** Jairo Serrano y Edwin Yunis.
 
 ## Accesos
 
@@ -9,7 +10,7 @@
 - **Notebook:** [Ejecutar en Google Colab](https://colab.research.google.com/github/EdwinY23/Taller3-Jairo_Serrano_Edwin_Yunis/blob/main/taller5-planeacion-operaciones/Taller5_Planeacion_CleanKing.ipynb).
 - **Modelo PuLP:** [Ver código fuente](modelo_pulp.py).
 
-> El trabajo se aloja en una carpeta independiente del repositorio actualmente conectado, sin alterar el dashboard del Taller 3. La integración de GitHub no permite crear un repositorio nuevo desde el chat. Se puede migrar la carpeta a un repositorio independiente posteriormente.
+> **Ubicación del proyecto:** carpeta `taller5-planeacion-operaciones/` dentro del repositorio de GitHub.
 
 ## Planteamiento del problema
 
@@ -128,7 +129,7 @@ Se resolvió una versión equivalente del MILP con **SciPy/HiGHS** para validar 
 | Inventario Barranquilla | 244.360 |
 | **Total** | **5.251.851.475** |
 
-## Supuestos de costeo que deben declararse al profesor
+## Supuestos de costeo
 
 1. El cargo **3.681.000 COP por mezcladora y turno** se interpreta como costo mensual por máquina operativa en el turno, no por cada día.
 2. Se imputan los seis salarios base mensuales; por mezcladora totalmente inactiva en el mes se descuenta el **40 %** de su salario (cubierto por la otra dependencia).
@@ -144,7 +145,7 @@ Se resolvió una versión equivalente del MILP con **SciPy/HiGHS** para validar 
 
 | Archivo | Contenido |
 |---|---|
-| [`Taller5_Planeacion_CleanKing.ipynb`](Taller5_Planeacion_CleanKing.ipynb) | Notebook autocontenido con explicación de la guía, datos, modelo PuLP/CBC, reportes, figuras y controles |
+| [`Taller5_Planeacion_CleanKing.ipynb`](Taller5_Planeacion_CleanKing.ipynb) | Notebook de Colab con fases identificadas por títulos, modelo PuLP/CBC, reportes, gráficos y comprobaciones |
 | [`modelo_pulp.py`](modelo_pulp.py) | Código fuente modular equivalente al notebook |
 | [`material/Guia_profesor_original.ipynb`](material/Guia_profesor_original.ipynb) | Copia de la guía del profesor aportada al taller |
 | [`data/resumen_mensual.csv`](data/resumen_mensual.csv) | Mezcladoras/turnos, trabajadores reasignables, transporte, bodegas y capacidad libre |
@@ -171,4 +172,3 @@ Para sensibilidad al MAD, usar `--k-mad 1.0` después de resolver el caso base. 
 - **Alcides R. Santander M.** *Taller 5. Planeación de Operaciones*, IIN 7171, Universidad del Norte, páginas 1–3 (documento entregado con el ejercicio).
 - **Guia.ipynb**, código de referencia del profesor con PuLP, modelo agregado de planeación de operaciones (archivo entregado con el ejercicio).
 
-Este material distingue los datos del profesor de las decisiones de modelación y de los resultados computacionales.
