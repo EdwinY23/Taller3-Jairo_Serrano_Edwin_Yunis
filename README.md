@@ -1,3 +1,14 @@
+## Acceso a los talleres de Gestión de Operaciones
+
+| Taller | Presentación interactiva | Código y archivos |
+|---|---|---|
+| **Taller 3 — Tecnología de Grupos** | [Abrir dashboard](https://edwiny23.github.io/Taller3-Jairo_Serrano_Edwin_Yunis/) | [Archivos del Taller 3](https://github.com/EdwinY23/Taller3-Jairo_Serrano_Edwin_Yunis) |
+| **Taller 5 — Planeación de Operaciones (Clean King)** | **[Abrir dashboard del Taller 5](https://edwiny23.github.io/Taller3-Jairo_Serrano_Edwin_Yunis/taller5-planeacion-operaciones/)** | **[Ver carpeta del Taller 5](taller5-planeacion-operaciones/)** · [Notebook Colab](https://colab.research.google.com/github/EdwinY23/Taller3-Jairo_Serrano_Edwin_Yunis/blob/main/taller5-planeacion-operaciones/Taller5_Planeacion_CleanKing.ipynb) |
+
+> **Ubicación:** El Taller 5 se encuentra en la carpeta `taller5-planeacion-operaciones/` de este repositorio. No se creó un repositorio de GitHub separado.
+
+---
+
 # Taller 3 — Tecnología de Grupos
 
 **Gestión de Operaciones · Maestría en Ingeniería Industrial · Universidad del Norte**
