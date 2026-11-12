@@ -10,7 +10,7 @@ function makeTable(elem,cols,rows){
 function renderKpis(){const m=REF_DATA.months;const boxes=m.reduce((s,x)=>s+x.Cajas_utilizables,0);const trips=m.reduce((s,x)=>s+x.Viajes_medellin,0);
  $('kpi-total').textContent=COP.format(REF_DATA.objective_total_COP);
  $('kpi-prod').textContent=nfmt(boxes);$('kpi-trips').textContent=nfmt(trips);$('kpi-gap').textContent=nfmt(REF_DATA.gap*100)+' %';
- $('kpi-qc').textContent=nfmt(m.reduce((s,x)=>s+x.Cajas_QC_destructivas,0));
+ const qc=$('kpi-qc'); if(qc) qc.textContent=nfmt(m.reduce((s,x)=>s+x.Cajas_QC_destructivas,0));
 }
 function renderMonthly(){const m=REF_DATA.months; const max=Math.max(...m.map(x=>x.Costo_mensual_COP));
  $('monthly-bars').innerHTML=m.map(x=>'<div class="bar-row"><span>'+x.Mes+'</span><div class="bar-bg"><div class="bar-fill" style="width:'+x.Costo_mensual_COP/max*100+'%"></div></div><span class="bar-value">'+nfmt(x.Costo_mensual_COP/1e6)+' M</span></div>').join('');
